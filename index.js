@@ -12,30 +12,6 @@ const bot = new Client();
 const cheerio = require('cheerio');
 const request = require('request');
 
-// See if bot works
-
-bot.on('ready', () => {
-    console.log('Surprisingly I work');
- 
-})
-
-// Command: Astolfo images
-
-const PREFIX = '!';
- 
-bot.on('message', message => {
- 
-    let args = message.content.substring(PREFIX.length).split(" ");
- 
-    switch (args[0]) {
-        case 'astolfo':
-        image(message);
- 
-        break;
-    }
- 
-});
- 
 function image(message){
  
     var options = {
@@ -74,9 +50,27 @@ function image(message){
  
  
 }
+// See if bot works
 
-// Command: Reply to messages
-bot.on('message', msg=>{
+bot.on('ready', () => {
+    console.log('Surprisingly I work');
+ 
+})
+
+
+bot.on('message', msg => {
+ 
+    // Command: Astolfo images
+    let args = msg.content.substring(1).split(" ");
+ 
+    switch (args[0]) {
+        case 'astolfo':
+        image(msg);
+ 
+        break;
+    } return;
+ 
+    // Command: Reply to messages
     if(msg.content ===  "if htis woirks i am gonna cry"){
         msg.reply('bot not works'); 
     }
@@ -138,7 +132,7 @@ bot.on('message', msg=>{
     }
 
     if(msg.content.includes('jai')) {
-        msg.reply('did someone say Jai?');
+        msg.reply('did someone say Jai?'); 
     }
 
     if(msg.content.includes('owen')) {
@@ -208,11 +202,11 @@ bot.on('message', msg=>{
     }
 
     if(msg.content.includes('mine')) {
-        msg.reply('i dont think that is very communist of you, you will now be sent to the Gulags. GLHF', {files: ['./images/commie.png']});
+        msg.reply('i dont think that is very communist of you, you will now be sent to the Gulags. GLHF', {files: ['./images/commie.png']}); 
     }
 
     if(msg.content.includes('me')) {
-        msg.reply('i dont think that is very communist of you, you will now be sent to the Gulags. GLHF', {files: ['./images/commie.png']});
+        msg.reply('i dont think that is very communist of you, you will now be sent to the Gulags. GLHF', {files: ['./images/commie.png']}); 
     }
 
     if(msg.content.includes('our')) {
